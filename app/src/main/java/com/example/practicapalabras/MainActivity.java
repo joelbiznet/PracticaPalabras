@@ -14,33 +14,34 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
 
     public EditText txt_uno;
+    private String[] vocales = {"U", "u", "i", "I"};
+
+    private int palabraEncontrada = 0;
+    private Button btn_contar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.txt_uno).requestFocus();
-        Button btn_contar = findViewById(R.id.btn_contar);
         btn_contar.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
 
-                String cantidad = txt_uno.getText().toString();
-                String[] temp = cantidad.split(" ");
-
-                int cantidadNombres = temp.length;
-
-                if (temp[0].equals(temp[1])) { // strText is the string from the edit text, myString is the string
-                    Toast.makeText(getBaseContext(),"Las 2 palabras son iguales",Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getBaseContext(),"Las 2 palabras no son iguales",Toast.LENGTH_SHORT).show();
+                for(String palabra: vocales){
+                    if(palabra.equals(txt_uno.getText().toString())){
+                        ++palabraEncontrada;
+                        break; //Si encuentra coincidencia detiene la ejecución del for.
+                    }
                 }
-                Toast.makeText(getBaseContext(),"La cantidad de palabra es:" + cantidad,Toast.LENGTH_SHORT).show();
 
+                if(palabraEncontrada>1){ //se encontró una vocal.
+                    Toast.makeText(MainActivity.this, palabraEncontrada + " vocales cerradas encontradas",
+                            Toast.LENGTH_LONG).show();
+                }
             }
-
         });
     }
 
