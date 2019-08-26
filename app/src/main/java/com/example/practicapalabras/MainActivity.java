@@ -14,7 +14,6 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
 
     public EditText txt_uno;
-    public TextView contador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.txt_uno).requestFocus();
-        Button btn_contar = (Button)findViewById(R.id.btn_contar);
+        Button btn_contar = findViewById(R.id.btn_contar);
         btn_contar.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -30,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
                 String cantidad = txt_uno.getText().toString();
 
                 String[] temp = cantidad.split(" ");
-                String uno = temp[0];
-                String dos = temp[1];
 
                 int cantidadNombres = temp.length;
 
@@ -46,5 +43,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-}
 
+}
