@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Contar Palabras</string>
+    <string name="btn_name">Count</string>
+    <string name="hint_uno">Write 2 Words</string>
+</resources>
