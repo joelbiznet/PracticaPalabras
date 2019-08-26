@@ -26,22 +26,22 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                String cantidad = txt_uno.getText().toString();
 
+                String cantidad = txt_uno.getText().toString();
                 String[] temp = cantidad.split(" ");
 
                 int cantidadNombres = temp.length;
 
                 if (temp[0].equals(temp[1])) { // strText is the string from the edit text, myString is the string
-                    Toast.makeText(this, "Las 2 palabras son iguales: ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"Las 2 palabras son iguales",Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, "Las 2 palabras no son iguales: ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"Las 2 palabras no son iguales",Toast.LENGTH_SHORT).show();
                 }
+                Toast.makeText(getBaseContext(),"La cantidad de palabra es:" + cantidad,Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(this, "La cantidad de palabras es: " + cantidadNombres, Toast.LENGTH_LONG).show();
             }
 
-        }
+        });
     }
 
 }
